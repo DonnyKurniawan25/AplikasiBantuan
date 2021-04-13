@@ -15,12 +15,12 @@ class berandaController extends Controller
     public function index()
     {
         $data = training::all()->count('id');
-        $data1 = users::all()->count('id');
-        $data2 = testing::all()->count('id');
-        $data3 = mahasiswa::all()->count('id');
-        $data4 = temp::all()->count('id');
-        $data5 = Registrasi::all()->count('id');
+        // $data1 = users::all()->count('id');
+        // $data2 = testing::all()->count('id');
+        // $data3 = mahasiswa::all()->count('id');
+        // $data4 = temp::all()->count('id');
+        // $data5 = Registrasi::all()->count('id');
 
-        return view('Dashboard1.app1',compact('data','data1','data2','data3','data4','data5'));
+        return view('Dashboard1.app1', compact('data'));
     }
 }

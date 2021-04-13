@@ -20,6 +20,7 @@ Route::get('/akurasi', function () {
 
 Route::resource('/training','trainingController');
 Route::resource('/testing','testingController');
+Route::resource('/hitung','hitungController');
 Route::resource('/mahasiswa','mahasiswaController');
 Route::resource('/Rules','rulesController');
 Route::resource('/Beranda','berandaController');

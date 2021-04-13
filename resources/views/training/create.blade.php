@@ -1,0 +1,180 @@
+@extends('layout1.app')
+
+@section('content')
+
+@include('pesan') 
+
+
+<!-- BREADCRUMB-->
+<section class="au-breadcrumb2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="au-breadcrumb-content">
+                    <div class="au-breadcrumb-left">
+                        <span class="au-breadcrumb-span">You are here:</span>
+                        <ul class="list-unstyled list-inline au-breadcrumb__list">
+                            <li class="list-inline-item active">
+                                <a href="#">Data Training</a>
+                            </li>
+                            <li class="list-inline-item seprate">
+                                <span>/</span>
+                            </li>
+                            <li class="list-inline-item">Tambah Data Training</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END BREADCRUMB-->
+
+<div class="col-md-8 offset-md-2">
+    <div class="card">
+        <div class="card-header">
+            <strong>ADD</strong> Data Training
+        </div>
+        <div class="card-body card-block">
+            <form method="post" action="{{ route('training.store') }}" class="form-horizontal">
+      			@csrf
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">NIK</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="number" id="text-input" name="NIK" required placeholder="NIK" class="form-control">
+                        <small class="form-text text-muted"><font color="red">* Wajib Diisi</font></small>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Nama</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" id="text-input" name="Nama" required placeholder="Nama" class="form-control">
+                        <small class="form-text text-muted"><font color="red">* Wajib Diisi</font></small>
+                    </div>
+                </div>
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Jenis Kelamin</label>
+                    </div>
+                    <div class="col col-md-9">
+                        <div class="form-check">
+                            <div class="radio">
+                                <label for="radio1" class="form-check-label ">
+                                    <input type="radio" id="radio1" name="Jenis_kelamin" required value="L" class="form-check-input">Laki-Laki
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="radio2" class="form-check-label ">
+                                    <input type="radio" id="radio2" required name="Jenis_kelamin" value="P" class="form-check-input">Perempuan
+                                </label>
+                            </div>
+                        </div>
+                        <small class="form-text text-muted"><font color="red">* Wajib Dipilih</font></small>
+
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Umur</label>
+                    </div>
+                    <div class="col-12 col-md-2">
+                        <input type="number" id="text-input" name="Umur" required placeholder="Umur" class="form-control">
+                        <small class="form-text text-muted"><font color="red">* Wajib Diisi</font></small>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="select" class=" form-control-label">Status Perkawinan</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <select name="Status_perkawinan" id="select" class="form-control">
+                            <option disabled selected>Please select</option>
+                            <option value="Belum Kawin">Belum Kawin</option>
+                            <option value="Kawin">Kawin</option>
+                        </select>
+                        <small class="form-text text-muted"><font color="red">* Wajib Diisi</font></small>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Pendidikan</label>
+                    </div>
+                    <div class="col col-md-9">
+                        <div class="form-check">
+                            <div class="radio">
+                                <label for="radio3" class="form-check-label ">
+                                    <input type="radio" id="radio3" name="Pendidikan" required value="Belum/Tidak Tamat" class="form-check-input">Belum/Tidak Tamat
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="radio4" class="form-check-label ">
+                                    <input type="radio" id="radio4" required name="Pendidikan" value="SD/Sederajat" class="form-check-input">SD/Sederajat
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="radio5" class="form-check-label ">
+                                    <input type="radio" id="radio5" required name="Pendidikan" value="SD/MI/Sederajat" class="form-check-input">SD/MI/Sederajat
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label for="radio6" class="form-check-label ">
+                                    <input type="radio" id="radio6" required name="Pendidikan" value="SLTP/MTs/Sederajat" class="form-check-input">SLTP/MTs/Sederajat
+                                </label>
+                            </div>
+                        </div>
+                        <small class="form-text text-muted"><font color="red">* Wajib Dipilih</font></small>
+
+                    </div>
+                </div>
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="select" class=" form-control-label">Pekerjaan</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <select name="Pekerjaan" id="select" class="form-control">
+                            <option disabled selected>Please select</option>
+                            <option value="Tidak Bekerja">Tidak Bekerja</option>
+                            <option value="Buruh">Buruh</option>
+                            <option value="Petani">Petani</option>
+                            <option value="Usaha Sendiri">Usaha Sendiri</option>
+                        </select>
+                        <small class="form-text text-muted"><font color="red">* Wajib Diisi</font></small>
+                    </div>
+                </div>
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="text-input" class=" form-control-label">Jumlah Tanggungan</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="number" id="text-input" name="Jumlah_tanggungan" required placeholder="Jumlah Tanggungan" class="form-control">
+                        <small class="form-text text-muted"><font color="red">* Wajib Diisi</font></small>
+                    </div>
+                </div>
+                 <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label for="select" class=" form-control-label">Keputusan</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <select name="Keputusan" id="select" class="form-control">
+                            <option disabled selected>Please Select</option>
+                            <option value="DITERIMA" >DITERIMA</option>
+                            <option value="DITOLAK">DITOLAK</option>
+                        </select>
+                        <small class="form-text text-muted"><font color="red">* Wajib Diisi</font></small>
+                    </div>
+                </div>
+		        <div class="card-footer">
+		            <button type="submit" class="btn btn-primary btn-sm">
+		                <i class="fa fa-dot-circle-o"></i> Submit
+		            </button>
+		            <button type="reset" class="btn btn-danger btn-sm">
+		                <i class="fa fa-ban"></i> Reset
+		            </button>
+		        </div>
+		    </div>
+		</div>
+@endsection
