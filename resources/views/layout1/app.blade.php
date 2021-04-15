@@ -66,7 +66,7 @@
                                         <a href="/training">Data Training</a>
                                     </li>
                                     <li>
-                                        <a href="register.html">Data Testing</a>
+                                        <a href="/testing">Data Testing</a>
                                     </li>
                                 </ul>
                             </li>

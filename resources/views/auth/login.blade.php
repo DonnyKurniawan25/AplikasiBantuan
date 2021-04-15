@@ -1,58 +1,108 @@
-<link rel="stylesheet" href="{{ asset('style1.css') }}" type="text/css" >
+ <head>
+ <!-- Fontfaces CSS-->
+    <link href="{{ asset('admin/css/font-face.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/font-awesome-4.7/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/font-awesome-5/css/fontawesome-all.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/mdi-font/css/material-design-iconic-font.min.css') }}" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="{{ asset('admin/vendor/bootstrap-4.1/bootstrap.min.css') }}" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="{{ asset('admin/vendor/animsition/animsition.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/wow/animate.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/css-hamburgers/hamburgers.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/slick/slick.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/select2/select2.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.css') }}" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="{{ asset('admin/css/theme.css') }}" rel="stylesheet" media="all">
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('jstable/jquery.dataTables.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('jstable/buttons.dataTables.min.css') }}">    
 <link rel="stylesheet" type="text/css" href="{{ asset('sweetalert/sweetalert2.css')}}">
 <script type="text/javascript" src="{{ asset('sweetalert/sweetalert2.js') }}"></script>
+</head>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+<body class="animsition">
+        <div class="page-wrapper">
+            <div class="page-content--bge5">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="{{ asset ('admin/images/icon/logo.png') }}">
+                        </div>
+                        <div class="col-md-6" style="padding-top: 100px">
+                            <div class="login-wrap">
+                                <div class="login-content">
+                                    <div class="login-logo">
+                                        <a href="#">
+                                            <img src="{{ asset ('admin/images/icon/logo.png') }}" alt="CoolAdmin">
+                                        </a>
+                                    </div>
+                                    <div class="login-form">
+                                       <form method="POST" action="{{ route('login') }}">
+                                            @csrf
+                                            <div class="form-group">
+                                                <label>Email Address</label>
+                                                <input class="au-input au-input--full @error('email') is-invalid @enderror" type="email" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
+                                                @error('email')
+                                                    <script>
 
-                        <div class="login-box">
-                            <h1>Login</h1>
-                            <div class="textbox">
-                                <i class="fas fa-user"></i>
-                                <input placeholder="Username" id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" >
+                                                        Swal.fire({
+                                                            position: 'center',
+                                                            type: 'warning',
+                                                            title: 'Email Atau Password Salah',
+                                                            showConfirmButton: false,
+                                                            timer: 2000
+                                                        })
 
-                                @error('email')
-                                <script>
+                                                    </script>
+                                                @enderror
+                                            </div>
 
-                                    Swal.fire({
-                                        position: 'center',
-                                        type: 'warning',
-                                        title: 'Email Atau Password Salah',
-                                        showConfirmButton: false,
-                                        timer: 2000
-                                    })
-
-                                </script>
-                                @enderror
-                            </div>
-
-                            <div class="textbox">
-                                <i class="fas fa-lock"></i>
-                                <input placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>Password Salah</strong>
-                                </span>
-                                @enderror
-                            </div>
-                            <div class="form-group row mb-0">
-                                <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
-                                        Login
-                                    </button>
+                                            <div class="form-group">
+                                                <label>Password</label>
+                                                <input class="au-input au-input--full @error('password') is-invalid @enderror" type="password" name="password" required autocomplete="current-password" placeholder="Password">
+                                            </div>
+                                            <div class="login-checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="remember">Remember Me
+                                                </label>
+                                            </div>
+                                            <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+       <!-- Jquery JS-->
+    <script src="{{ asset('admin/vendor/jquery-3.2.1.min.js') }}"></script>
+    <!-- Bootstrap JS-->
+    <script src="{{ asset('admin/vendor/bootstrap-4.1/popper.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
+    <!-- Vendor JS       -->
+    <script src="{{ asset('admin/vendor/slick/slick.min.js') }}">
+    </script>
+    <script src="{{ asset('admin/vendor/wow/wow.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/animsition/animsition.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js') }}">
+    </script>
+    <script src="{{ asset('admin/vendor/counter-up/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/counter-up/jquery.counterup.min.js') }}">
+    </script>
+    <script src="{{ asset('admin/vendor/circle-progress/circle-progress.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
+    <script src="{{ asset('admin/vendor/chartjs/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin/vendor/select2/select2.min.js') }}">
+    </script>
 
+    <!-- Main JS-->
+    <script src="{{ asset('admin/js/main.js') }}"></script>
+</body>
